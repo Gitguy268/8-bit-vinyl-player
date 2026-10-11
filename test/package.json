@@ -1,0 +1,16 @@
+{
+  "name": "8-bit-vinyl-player-tests",
+  "private": true,
+  "description": "Playwright checks for ../index.html. The app itself has no dependencies.",
+  "scripts": {
+    "lint": "node lint.js",
+    "build": "rm -rf ../_site && mkdir ../_site && cp -R ../index.html ../favicon.png ../OFL.txt ../llms.txt ../sitemap.xml ../screenshots ../_site/",
+    "test": "for b in chromium firefox webkit; do node verify.js $b && node extra.js $b || exit 1; done",
+    "test:quick": "node verify.js chromium && node extra.js chromium",
+    "test:audio": "for b in chromium firefox webkit; do node audio.js $b; node elpath.js $b; node alias.js $b; done; node wear.js; node reduced.js",
+    "shots": "node shots.js ../index.html out/shots"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

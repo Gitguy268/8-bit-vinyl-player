@@ -1,0 +1,14 @@
+8-Bit Vinyl Player
+Copyright (c) 2026 Lucas Van De Weerd
+
+The code is licensed under the MIT License (see LICENSE).
+
+index.html embeds one third-party asset, which the MIT License does not cover:
+
+  Press Start 2P (font), unmodified
+  Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net),
+  with Reserved Font Name "Press Start 2P".
+  Licensed under the SIL Open Font License, Version 1.1 (see OFL.txt).
+
+"NES", "Game Boy" and "C64" name the colour palettes only. This project is not
+affiliated with or endorsed by Nintendo or the owners of the Commodore brand.
