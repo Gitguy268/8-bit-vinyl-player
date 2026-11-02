@@ -32,7 +32,7 @@ npm test           # behaviour in Chromium, Firefox and WebKit
 
 ## Code style
 
-- Everything the player needs stays in `index.html`: inline CSS and JavaScript, no build step, no runtime dependencies, no network requests. It must work from `file://`.
+- Everything the player needs stays in `index.html`: inline CSS and JavaScript, no build step, nothing loaded from another file, no network requests. It must work from `file://`.
 - Plain HTML, CSS and JavaScript. Two-space indentation, single quotes, semicolons.
 - Follow the section comments. Physical constants go in the constants block at the top of the script, not inline.
 - Keep it on the pixel grid: the deck is drawn in the four shades and the accent of the palette, sized in whole deck pixels (`--p` in CSS, `C.RES` in the script), with no soft gradients, blur, rounded corners or eased motion.
@@ -42,7 +42,7 @@ npm test           # behaviour in Chromium, Firefox and WebKit
 
 ## Assets and dependencies
 
-- Do not add audio, images or fonts you did not make or that are not licensed for redistribution. The drawings and demo tracks are generated in code; the one outside asset is the embedded font (see `OFL.txt`).
+- Do not add audio, images or fonts you did not make or that are not licensed for redistribution. The drawings and demo tracks are generated in code; the outside pieces are the embedded font (see `OFL.txt`) and the butterchurn visualizer, inlined unmodified in its own `<script>` block with its licence (see `NOTICE`). The bars visualizer is this project's own code, written after Musializer's method and credited in `NOTICE`, as are the sources of the graphic EQ presets (Webamp) and the ideas behind the desktop and the other visualizers.
 - Do not add a dependency without a clear reason. Development-only tools go in `test/package.json` with an exact version.
 
 ## Licence

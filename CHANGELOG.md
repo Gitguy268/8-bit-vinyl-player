@@ -13,6 +13,10 @@ First version: the [Realistic Vinyl Player](https://github.com/Gitguy268/realist
 - Crush fader: reduces the output from 8 bits at 22 kHz to 4 bits at 5.5 kHz. Off by default.
 - Chip-style mechanical sounds (square and triangle waves, noise).
 - Press Start 2P as the page font, embedded in `index.html`.
+- VIZ button: a visualizer on the record label while a record plays. Each press steps on: off, MilkDrop ([butterchurn](https://github.com/jberg/butterchurn), inlined in `index.html`, drawn at three pixels per deck pixel), then spectrum bars after [Musializer](https://github.com/tsoding/musializer), drawn on the deck's grid in the palette. It stays upright as the record turns and is remembered. Off by default and under reduced motion; without WebGL 2 only the bars are offered.
+- Four more VIZ styles, drawn from scratch on the deck's grid in the palette after ideas in [awesome-audio-visualization](https://github.com/willianjusten/awesome-audio-visualization): Lines (a ridgeline in the Unknown Pleasures style), Scope, Spectrogram and Ring (a radial spectrum).
+- Graphic EQ in Deck settings: Winamp's ten bands with a preamp, its 17 built-in presets (values from [Webamp](https://github.com/captbaritone/webamp)) and loading of Winamp `.eqf` preset files. Off by default; a trim ahead of it keeps boosts from clipping. Stored under `vinyl-eq` and `vinyl-eq-presets`, which the other players read too when served from the same address or opened as local files in the same browser.
+- DESK button, after [Winampify](https://github.com/remigallego/winampify): artists and albums open as folders in movable windows; a track plays on a double-click or when dragged onto the Turntable icon.
 - A self-test that the record on screen holds palette colours only, and a check that Crush holds samples.
 
 ### Changed

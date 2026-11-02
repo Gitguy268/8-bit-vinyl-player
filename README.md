@@ -6,19 +6,18 @@
 
 **A pixel-art turntable in one HTML file. It plays your own audio files, in the colours of an NES, a Game Boy or a C64.**
 
-[Try it in your browser](https://gitguy268.github.io/8-bit-vinyl-player/?demo) · [Run it](#run-it) · [What is 8-bit](#what-is-8-bit) · [Controls](#controls) · [Limits](#limits)
+[Run it](#run-it) · [What is 8-bit](#what-is-8-bit) · [Controls](#controls) · [Limits](#limits)
 
-<a href="https://github.com/Gitguy268/8-bit-vinyl-player/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Gitguy268/8-bit-vinyl-player/ci.yml?branch=main&label=CI" alt="CI"></a>
 <img src="https://img.shields.io/badge/licence-MIT-blue" alt="Licence: MIT">
 <img src="https://img.shields.io/badge/one-HTML%20file-e34c26" alt="One HTML file">
-<img src="https://img.shields.io/badge/dependencies-none-brightgreen" alt="No dependencies">
+<img src="https://img.shields.io/badge/install-nothing-brightgreen" alt="Nothing to install">
 <img src="https://img.shields.io/badge/network%20requests-none-brightgreen" alt="No network requests">
 
 <img src="docs/demo.webp" alt="In focus mode, pressing play: the strobe lamp lights, the platter spins up, the tonearm lowers onto the record and the progress bar starts moving" width="520">
 
 </div>
 
-The [Realistic Vinyl Player](https://github.com/Gitguy268/realistic-vinyl-player) redrawn as pixel art. The deck underneath is the same: the platter spins up and coasts down, the tonearm tracks across the whole record, and the pitch follows the platter speed. What changed is how it looks and, if you turn up the Crush fader, how it sounds. The "try it" link loads three short demo tracks.
+The Realistic Vinyl Player redrawn as pixel art. The deck underneath is the same: the platter spins up and coasts down, the tonearm tracks across the whole record, and the pitch follows the platter speed. What changed is how it looks and, if you turn up the Crush fader, how it sounds. The "try it" link loads three short demo tracks.
 
 <div align="center">
 <img src="screenshots/nes.png" alt="The whole page in the NES palette: deck, tracklist, transport and sound controls" width="640">
@@ -30,7 +29,7 @@ The [Realistic Vinyl Player](https://github.com/Gitguy268/realistic-vinyl-player
 
 ## Run it
 
-Open `index.html` in a browser. That is all: no build step, no dependencies, no network requests. It works offline and from `file://`.
+Open `index.html` in a browser. That is all: no build step, nothing to install, no network requests. It works offline and from `file://`.
 
 Add `?demo` to the URL to load three short synthesized tracks, so you can try it without any files. Demo tracks are kept in memory and never touch your saved library.
 
@@ -94,9 +93,12 @@ python3 -m http.server 8000
 | Condition | Mint, Good, Worn or Beat-up: hiss, crackle, scratches, dust and treble loss |
 | Cue lever, tonearm click | Lift or lower the stylus; the motor keeps running |
 | Record Info | Tags for the current track and editable liner notes |
-| Deck settings | Imperfection (wow and flutter), keep the platter spinning when paused, auto-return, record sides, record size follows speed, keep playing with the screen locked |
+| Deck settings | Imperfection (wow and flutter), keep the platter spinning when paused, auto-return, record sides, record size follows speed, keep playing with the screen locked, and the graphic EQ |
+| Graphic EQ | Winamp's ten bands and preamp after the tone controls, its 17 presets and loading of Winamp `.eqf` preset files. Off by default; a trim ahead of it takes back any boost so it does not clip. Its settings and imported presets are shared with the Realistic Vinyl Player and the other players when they are served from the same address, or opened as local files in the same browser. |
 | FLIP A | Flip the record. Shown beside the tracklist heading when "Record sides" is on and the playlist needs more than one side. Choosing a track on another side flips it for you. |
 | FOCUS | Larger deck with a floating control bar |
+| VIZ | A visualizer on the record label while a record plays, in place of the cover. Each press steps on: off, MilkDrop, spectrum bars, lines (a ridgeline), scope, spectrogram, ring (a radial spectrum). It stays upright as the record turns. All but MilkDrop are drawn on the deck's grid in the palette. |
+| DESK | The library as a desktop: artists and albums open as folders in movable windows. Double-click a track, or drag it onto the Turntable icon, to play it. Esc closes the front window, then the desktop. |
 | Media keys | Play, pause, previous, next and seek from the keyboard's media keys or a headset |
 
 Drag audio files or a cover image onto the page to add them.
@@ -125,6 +127,7 @@ The saved data is shared with the Realistic Vinyl Player when both are served fr
 - Where the browser has no CSS `round()` (before 2024), or on screens between sizes, a deck pixel is not a whole number of screen pixels and some look a little wider than others.
 - There is no text on the record label: it is about 28 pixels across. Artist, album and year are in Record Info.
 - A cover is reduced to five colours. Photographs come out rough, most of all in the Game Boy palette.
+- MilkDrop needs WebGL 2; without it the VIZ button offers the bars alone. MilkDrop is drawn at three pixels per deck pixel (about 78 across on an LP), finer than the rest of the deck, in its own colours, not the palette's five, and its edge is a smooth circle. The bars keep to the grid and the palette: ten of them on an LP's label, an octave each. Both stay off under `prefers-reduced-motion`. Butterchurn's code is about half of the file.
 - Crush is a bit and sample-rate reducer, not a chiptune synthesizer: the music keeps its own instruments. It needs AudioWorklet; without it the fader is disabled.
 - Press Start 2P covers Latin, Greek and Cyrillic. Other scripts in track titles fall back to the monospace font of the device.
 - Tracks longer than 20 minutes, and files the browser cannot decode into memory, play through the plain media element. They still follow platter speed and pitch, but they scrub silently, cannot play backwards and do not get wow and flutter. In Safari that path cannot glide: the music starts once the platter is at speed and stops when the motor is switched off.
@@ -174,8 +177,12 @@ See [CHANGELOG.md](CHANGELOG.md).
 Code: [MIT](LICENSE).
 
 - The font is [Press Start 2P](https://github.com/codeman38/PressStart2P), copyright 2012 The Press Start 2P Project Authors, embedded unmodified in `index.html` under the [SIL Open Font License 1.1](OFL.txt). It is not covered by the MIT licence. See [NOTICE](NOTICE).
+- The MilkDrop visualizer is [butterchurn](https://github.com/jberg/butterchurn) 2.6.7 with the "minimal" pack of [butterchurn-presets](https://github.com/jberg/butterchurn-presets) 2.4.7, copyright 2013-2018 Jordan Berg, embedded unmodified in `index.html` under the MIT licence. The licence text is in the file, above that code. The presets are community MilkDrop presets converted for butterchurn; each is named after its authors. See [NOTICE](NOTICE).
+- The bars visualizer follows [Musializer](https://github.com/tsoding/musializer) (MIT licence, copyright 2023 Alexey Kutepov and Musializer Contributors): its spectrum analysis and its bars, dots and smears, rewritten for the browser and the deck's grid. See [NOTICE](NOTICE).
+- The graphic EQ uses the band layout and the 17 built-in preset values of [Webamp](https://github.com/captbaritone/webamp) (MIT licence, copyright 2015 Jordan Eldredge), and its `.eqf` reader is written from Webamp's format notes. No Winamp skin or artwork is used. Winamp is a trademark of its owner; this project is not affiliated with Winamp, Nullsoft or Webamp. See [NOTICE](NOTICE).
+- The library desktop follows the idea of [Winampify](https://github.com/remigallego/winampify) (MIT); the Lines, Scope, Spectrogram and Radial visualizers are ideas found through [awesome-audio-visualization](https://github.com/willianjusten/awesome-audio-visualization) (CC0). No code was taken from either. See [NOTICE](NOTICE).
 - No other third-party code, images, icons or audio are included. Every drawing is generated in the page and the demo tracks are synthesized.
 - Screenshots in `screenshots/` show the demo tracks only.
 - "NES", "Game Boy" and "C64" name the colour palettes. This project is not affiliated with or endorsed by Nintendo or the owners of the Commodore brand.
 - The [Code of Conduct](CODE_OF_CONDUCT.md) is the [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/), used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- The deck model, audio engine and tag parsers come from the [Realistic Vinyl Player](https://github.com/Gitguy268/realistic-vinyl-player), and its layout from the original [Vinyl-Player](https://github.com/Gitguy268/Vinyl-Player), both by the same author.
+- The deck model, audio engine and tag parsers come from the Realistic Vinyl Player, and its layout from the original [Vinyl-Player](https://github.com/Gitguy268/Vinyl-Player), both by the same author.

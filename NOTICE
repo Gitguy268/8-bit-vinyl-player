@@ -3,12 +3,52 @@ Copyright (c) 2026 Lucas Van De Weerd
 
 The code is licensed under the MIT License (see LICENSE).
 
-index.html embeds one third-party asset, which the MIT License does not cover:
+index.html embeds two pieces of third-party work and adapts a third. It also
+uses data and ideas from three more projects, listed after them.
+
+A font, which the MIT License of this project does not cover:
 
   Press Start 2P (font), unmodified
   Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net),
   with Reserved Font Name "Press Start 2P".
   Licensed under the SIL Open Font License, Version 1.1 (see OFL.txt).
+
+A visualizer, in its own <script> block:
+
+  butterchurn 2.6.7 and the "minimal" pack of butterchurn-presets 2.4.7,
+  unmodified
+  Copyright (c) 2013-2018 Jordan Berg
+  Licensed under the MIT License; its text is in index.html, above that code.
+  The presets are community MilkDrop presets converted for butterchurn; each
+  is named after its authors.
+
+Code written after another project, in the player's own script (Viz.step and
+Viz.drawBars, the bars visualizer):
+
+  Musializer, github.com/tsoding/musializer
+  Copyright 2023 Alexey Kutepov and Musializer Contributors
+  Licensed under the MIT License, on the same terms as this project's LICENSE.
+
+Data and ideas from other projects (no code copied):
+
+  Webamp, github.com/captbaritone/webamp
+  Copyright (c) 2015 Jordan Eldredge, MIT License.
+  The graphic EQ (Geq) uses Webamp's band layout (ten bands, shelves at the
+  ends) and the values of Winamp's 17 built-in presets from its
+  presets/builtin.json. The .eqf reader is written from the format notes in
+  its winamp-eqf package. No Winamp skin or artwork is used. Winamp is a
+  trademark of its owner; this project is not affiliated with or endorsed by
+  Winamp, Nullsoft or Webamp.
+
+  Winampify, github.com/remigallego/winampify (MIT License)
+  The library desktop (Desk), with artists and albums as folders and tracks
+  as files, follows its idea.
+
+  awesome-audio-visualization, github.com/willianjusten/awesome-audio-visualization (CC0)
+  The Lines, Scope, Spectrogram and Radial label visualizers are ideas found
+  through this list, among them its "Lines" experiment and the "Awesome Audio
+  Player" and "CircleLineNERDDISCO" pens. They are drawn from scratch on the
+  deck's grid.
 
 "NES", "Game Boy" and "C64" name the colour palettes only. This project is not
 affiliated with or endorsed by Nintendo or the owners of the Commodore brand.
