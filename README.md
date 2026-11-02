@@ -27,6 +27,21 @@ The Realistic Vinyl Player redrawn as pixel art. The deck underneath is the same
 |---|---|
 | ![The deck in the four greens of the Game Boy palette](screenshots/gameboy.png) | ![The deck in the blues of the C64 palette](screenshots/c64.png) |
 
+<!-- run-steps:start -->
+## Run it locally, step by step
+
+1. **Get the code:**
+
+   ```sh
+   git clone https://github.com/Gitguy268/8-bit-vinyl-player.git
+   cd 8-bit-vinyl-player
+   ```
+
+2. **Open `index.html`** by double-clicking it. There is nothing to install or build.
+
+3. **Optional: try it without music** by adding `?demo` to the address. It loads three short synthesized tracks.
+<!-- run-steps:end -->
+
 ## Run it
 
 Open `index.html` in a browser. That is all: no build step, nothing to install, no network requests. It works offline and from `file://`.
