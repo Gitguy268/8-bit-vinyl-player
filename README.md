@@ -27,6 +27,10 @@ The Realistic Vinyl Player redrawn as pixel art. The deck underneath is the same
 |---|---|
 | ![The deck in the four greens of the Game Boy palette](screenshots/gameboy.png) | ![The deck in the blues of the C64 palette](screenshots/c64.png) |
 
+<!-- live-links -->
+**Live:** [gitguy268.github.io/8-bit-vinyl-player](https://gitguy268.github.io/8-bit-vinyl-player/) · [8-bit-vinyl-player.vercel.app](https://8-bit-vinyl-player.vercel.app)
+<!-- /live-links -->
+
 <!-- run-steps:start -->
 ## Run it locally, step by step
 
