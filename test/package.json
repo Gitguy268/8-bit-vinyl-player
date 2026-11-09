@@ -11,6 +11,6 @@
     "shots": "node shots.js ../index.html out/shots"
   },
   "devDependencies": {
-    "playwright": "1.64.1"
+    "playwright": "1.65.0"
   }
 }
