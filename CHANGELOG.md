@@ -8,6 +8,7 @@ First version: the [Realistic Vinyl Player](https://github.com/Gitguy268/realist
 
 ### Added
 
+- `?shelf`: plays one album handed over by [Vinyl Shelf](https://github.com/Gitguy268/vinyl-shelf) (the vinyl-shelf/1 protocol), beside the saved library and without writing to it. In browsers that keep sound off in a framed page, a "Tap to drop the needle" button appears.
 - Platter, strobe marks and record drawn on an 84-pixel grid in a palette of four shades and an accent. The record turns in 64 steps per revolution; only the cover, scratches and dust are turned, so nothing is drawn between two pixels.
 - Three palettes in place of the themes: NES, Game Boy and C64, each in light and dark.
 - Crush fader: reduces the output from 8 bits at 22 kHz to 4 bits at 5.5 kHz. Off by default.
